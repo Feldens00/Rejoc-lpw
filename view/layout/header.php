@@ -16,7 +16,17 @@
     <script type="text/javascript" src="../../../js/admin_products.js"></script>
     <script type="text/javascript" src="../../../js/jquery.min.js"></script>
     <script type="text/javascript" src="../../../js/html5shiv.js"></script>
-
+    <script>
+    function buscar_cidades(){
+      var estado = $('#estado').val();
+      if(estado){
+        var url = '../../model/ajax_buscar_cidades.php?estado='+estado;
+        $.get(url, function(dataReturn) {
+          $('#load_cidades').html(dataReturn);
+        });
+      }
+    }
+    </script>
 
 </head>
 <body>

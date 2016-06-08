@@ -15,7 +15,7 @@
          id="products_add_form">
         <p align="center"> Pessoas </p>
         <br />
-        <p> Equipe: <select name="sel_equipe">
+        <p> Equipe: <select name="id_equipe">
  
                             <?php
 
@@ -37,42 +37,50 @@
         *</p> 
 
 
-        <p> Nome: <input name="txt_nome" type="text" size="40" maxlength="40" />*      </p>
+        <p> Nome: <input name="nome" type="text" size="40" maxlength="40" />*      </p>
 
         <p>Data de Nascimento: 
-        <input name="txt_dia" type="text" size="2" maxlength="2" /> m&ecirc;s  
-        <input name="txt_mes" type="text" size="2" maxlength="2" />
+        <input name="dia" type="text" size="2" maxlength="2" /> m&ecirc;s  
+        <input name="mes" type="text" size="2" maxlength="2" />
 
         </p>
 
-    <p> Endere&ccedil;o: <input name="txt_end" type="text" size="50" maxlength="50"/> </p>
+    <p> Endere&ccedil;o: <input name="endereco" type="text" size="50" maxlength="50"/> </p>
 
-    <p> Bairro: <input type="text" name="txt_bairro" maxlength="22" size="30" />
+    <p> Bairro: <input type="text" name="bairro" maxlength="22" size="30" />
 
      CEP: <input type="text" name="cep5" maxlength="5" size="5" />-<input type="text" name="cep3" maxlength="3" size="3" /> </p>
-        
-        <p> Cidade: <select name="sel_cidade">
- 
-                        <?php
-                            include '../../model/pessoaModel.php';
-                             $obj = new pessoaModel();
+       
+      <div>
+      <label>Estado:</label>
+      <select name="estado" id="estado" onchange="buscar_cidades()">
+        <option value="">Selecione...</option>
 
-                                $cidadeArray = $obj->cidade_estado();
-                                
+        <?php
+                                include '../../model/pessoaModel.php';
+                                $obj = new pessoaModel();
+
+                                $arrayEstados = $obj->cidade_estados();
+
                                
-                                print ('<option value="0" >Selecione a Cidade...</option>');
-                                foreach ($cidadeArray as $linha) 
-                                {
-                                    $id_cidade=$linha["id_cidade"];
-                                    $nome_cidade=$linha["nome_cidade"];
-                                    print ("<option value=$id_cidade>$nome_cidade</option>");
-                                }
-                       
-                            ?>
-                    </select> 
-     </p>
+                          
+                              
+                                 foreach ($arrayEstados as $estados => $nome) {
+                                  echo "<option value='{$estados}'>{$nome}</option>";
+        }?>
+      </select>
+      </div>
+      <div id="load_cidades">
+        <label>Cidades:</label>
+        <select name="id_cidade" id="cidade">
+          <option value="">Selecione o estado</option>
+        </select>
+      </div>
+
+         
+
       <p> Telefone: (<input type="text" name="ddd" maxlength="2" size="2" />) <input type="text" name="fone" maxlength="40" size="40" /> </p>
-      <p> E-mail: <input type="text" name="txt_email" maxlength="45" size="45" /> </p>
+      <p> E-mail: <input type="text" name="email" maxlength="45" size="45" /> </p>
       
 
        
@@ -83,3 +91,16 @@
     </b>
    
     <!-- end .content --></div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+    function buscar_cidades(){
+      var estado = $('#estado').val();
+      if(estado){
+        var url = '../../js/ajax_buscar_cidades.php?estado='+estado;
+        $.get(url, function(dataReturn) {
+          $('#load_cidades').html(dataReturn);
+        });
+      }
+    }
+    </script>

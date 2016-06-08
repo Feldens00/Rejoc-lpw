@@ -2,7 +2,7 @@
 
 require_once "../model/pessoaModel.php";
 
-class equipeController {
+class pessoaController {
 
     function action($action)
     {
@@ -16,6 +16,7 @@ class equipeController {
             case '2':
                 $this->remover($_GET['id']);
                 break;
+            
             default:
                 echo "Erro de Action";
                 die();
@@ -29,7 +30,21 @@ class equipeController {
         $dia_nasc       = strip_tags($_POST['dia']);
         $mes_nasc       = strip_tags($_POST['mes']);
         $id_cidade       = strip_tags($_POST['id_cidade']);
+        $id_estado      = strip_tags($_POST['estado']);
         $id_equipe       = strip_tags($_POST['id_equipe']);
+        $endereco         = strip_tags($_POST['endereco']);
+        $bairro         = strip_tags($_POST['bairro']);
+        $cep5         = strip_tags($_POST['cep5']);
+        $cep3        = strip_tags($_POST['cep3']);
+        $ddd         = strip_tags($_POST['ddd']);
+        $fone         = strip_tags($_POST['fone']);
+        $email       = strip_tags($_POST['email']);
+        $telefone='('.$ddd.') '.$fone;
+        $cep=$cep5.'-'.$cep3;
+
+        
+        echo("nome:".$nome_p."<br> dia:".$dia_nasc."<br>mes:".$mes_nasc."<br> id_cidade:".$id_cidade."<br> id_estado:".$id_estado.
+            "<br> equipe:".$id_equipe."<br> endereco:".$endereco."<br> bairro:".$bairro."<br> email:".$email."<br> telefone:".$telefone."<br> cep:".$cep);
 
 
 
@@ -109,7 +124,14 @@ class equipeController {
             'dia_nasc'       => $dia_nasc,
             'mes_nasc'       => $mes_nasc,
             'id_cidade'       => $id_cidade,
-            'id_equipe'       => $id_equipe
+            'id_estado'       => $id_estado,
+            'id_equipe'       => $id_equipe,
+            'endereco'       => $endereco,
+            'bairro'       => $bairro,
+            'cep'       => $cep,
+            'telefone'       => $telefone,
+            'email'       => $email,
+               
             
         ];
 
@@ -121,10 +143,22 @@ class equipeController {
     }
 
     function alterar()
-    {
-         $nome_p        = strip_tags($_POST['nome']);
+    {    
+        $nome_p        = strip_tags($_POST['nome']);
         $dia_nasc       = strip_tags($_POST['dia']);
         $mes_nasc       = strip_tags($_POST['mes']);
+        $id_cidade       = strip_tags($_POST['id_cidade']);
+        $id_estado      = strip_tags($_POST['estado']);
+        $id_equipe       = strip_tags($_POST['id_equipe']);
+        $endereco         = strip_tags($_POST['endereco']);
+        $bairro         = strip_tags($_POST['bairro']);
+        $cep5         = strip_tags($_POST['cep5']);
+        $cep3        = strip_tags($_POST['cep3']);
+        $ddd         = strip_tags($_POST['ddd']);
+        $fone         = strip_tags($_POST['fone']);
+        $email       = strip_tags($_POST['email']);
+        $telefone='('.$ddd.') '.$fone;
+        $cep=$cep5.'-'.$cep3;
 
 
        if($nome_p == null){
@@ -172,10 +206,18 @@ class equipeController {
 
 
         $pessoa = [
+          
             'nome_pessoa'        => $nome_p,
-            'dia_nasc'       => $dia_nasc
-            'mes_nasc'       => $mes_nasc
-            
+            'dia_nasc'       => $dia_nasc,
+            'mes_nasc'       => $mes_nasc,
+            'id_cidade'       => $id_cidade,
+            'id_estado'       => $id_estado,
+            'id_equipe'       => $id_equipe,
+            'endereco'       => $endereco,
+            'bairro'       => $bairro,
+            'cep'       => $cep,
+            'telefone'       => $telefone,
+            'email'       => $email,
         ];
 
         $obj = new pessoaModel();
@@ -186,11 +228,12 @@ class equipeController {
 
     function remover($id)
     {
-        $obj = new equipeModel();
+        $obj = new pessoaModel();
         $obj->remover($id);
          header('Location: ../view/pessoa/');
     }
 
+   
 
 }
 

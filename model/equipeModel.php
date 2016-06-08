@@ -71,7 +71,7 @@ class equipeModel {
     {
         $obj = new Database();
 
-        $sqllistaTodos = 'SELECT * FROM equipes';
+        $sqllistaTodos = 'SELECT * FROM equipes ORDER BY ordem_equipe';
 
         $result = mysqli_query($obj->getConnection(), $sqllistaTodos);
 
