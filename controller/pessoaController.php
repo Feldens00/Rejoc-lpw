@@ -34,13 +34,10 @@ class pessoaController {
         $id_equipe       = strip_tags($_POST['id_equipe']);
         $endereco         = strip_tags($_POST['endereco']);
         $bairro         = strip_tags($_POST['bairro']);
-        $cep5         = strip_tags($_POST['cep5']);
-        $cep3        = strip_tags($_POST['cep3']);
-        $ddd         = strip_tags($_POST['ddd']);
-        $fone         = strip_tags($_POST['fone']);
+        $cep         = strip_tags($_POST['cep']);
+        $telefone         = strip_tags($_POST['fone']);
         $email       = strip_tags($_POST['email']);
-        $telefone='('.$ddd.') '.$fone;
-        $cep=$cep5.'-'.$cep3;
+        
 
         
         echo("nome:".$nome_p."<br> dia:".$dia_nasc."<br>mes:".$mes_nasc."<br> id_cidade:".$id_cidade."<br> id_estado:".$id_estado.
@@ -152,13 +149,9 @@ class pessoaController {
         $id_equipe       = strip_tags($_POST['id_equipe']);
         $endereco         = strip_tags($_POST['endereco']);
         $bairro         = strip_tags($_POST['bairro']);
-        $cep5         = strip_tags($_POST['cep5']);
-        $cep3        = strip_tags($_POST['cep3']);
-        $ddd         = strip_tags($_POST['ddd']);
-        $fone         = strip_tags($_POST['fone']);
+        $cep         = strip_tags($_POST['cep']);
+        $telefone         = strip_tags($_POST['fone']);
         $email       = strip_tags($_POST['email']);
-        $telefone='('.$ddd.') '.$fone;
-        $cep=$cep5.'-'.$cep3;
 
 
        if($nome_p == null){
@@ -205,8 +198,7 @@ class pessoaController {
       
 
 
-        $pessoa = [
-          
+         $pessoa = [
             'nome_pessoa'        => $nome_p,
             'dia_nasc'       => $dia_nasc,
             'mes_nasc'       => $mes_nasc,
@@ -218,6 +210,8 @@ class pessoaController {
             'cep'       => $cep,
             'telefone'       => $telefone,
             'email'       => $email,
+               
+            
         ];
 
         $obj = new pessoaModel();

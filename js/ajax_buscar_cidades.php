@@ -13,7 +13,7 @@ for ($i = 0; $i < $num; $i++) {
 }
 ?>
 
-<label>Cidades:</label>
+ Cidades:
 <select name="id_cidade" id="id_cidade">
   <?php foreach($arrayCidades as $value => $nome){
     echo "<option value='{$value}'>{$nome}</option>";

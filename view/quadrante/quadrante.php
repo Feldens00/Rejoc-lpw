@@ -13,7 +13,7 @@ require_once "../../model/quadranteModel.php";
     <div class="col-lg-12">
         <meta charset="UTF-8">
         <div class="col-lg-4">
-            <a href="adicionar.php" >Adicionar</a>
+             <a href="selecionarQuadrante.php"><button type="button" class="btn btn-primary">Adicionar Pessoas ao Quadrante</button></a>
         </div>
         <div class="col-lg-8">
             <form action="pesquisa.php" method="post">

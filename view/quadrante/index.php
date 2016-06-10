@@ -1,35 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link href="css/bootstrap.css" rel="stylesheet">
+	<title></title>
+</head>
+<body>
 
+<?php
+error_reporting(0);
+?>
 <?php
 
 
 require_once "../../model/quadranteModel.php";
+require_once "../../model/coordenadorModel.php";
+require_once "../../model/grupoModel.php";
 
 
+						$obj = new quadranteModel();
+						$objg = new grupoModel();
+						$objc = new coordenadorModel();
+					
+						$linha = $objc->numero();
+
+
+			
 
 ?>
 			<table align="center" border="1"  width="100%"  >
 				<tr border="1" bordercolor="#000000" align="center"> 
 					<td>
-						<font size="+6"><b>CURSISTAS 128º REJOC</b></font>
+						<font  id="font_coord" size="+6"><b>CURSISTAS <?php print $linha["numero_rejoc"] ?>º REJOC</b></font>
 					</td>    
 				</tr>
 			</table>
 			
-			 
+	
 			
-			<table class="quadrante_font">        
+			       
 				<?php 
 					
-					$obj = new quadranteModel();
 					
 
 
 						for($i=0; $i<36; $i++){
-
+							$qtd = $obj->qtd($i);
+							$linhaQtd = mysqli_fetch_array($qtd);
 							$equipeArray = $obj->equipeQuadrante($i);
-							$pessoaArray = $obj->listaTodos($i);
-
+							$pessoaArray = $obj->todosEquipe($i);
+							
 						 foreach($equipeArray as $linhaE){ 
+
 				?>
 
 							<table align="center" border="1" width="100%"   >
@@ -40,13 +64,26 @@ require_once "../../model/quadranteModel.php";
 								</tr>
 							</table> 
 
+			<table class="quadrante_font">
 						<?php }
-									 foreach($pessoaArray as $linha){
+						 	$x=0;
 
+									 foreach($pessoaArray as $linha){
+									 			
+							if( $x !=0 && ($x % 3)==0 )
+									{
+										echo '<tr>';
+									}
+									else{
+											if($x==0)
+											{
+												echo '<tr>';
+											}
+										}
 
 						 ?>
-
-
+			 
+						 		
 										<td>                                    
 										   
 										   <table width="275" border="1" bordercolor="#000000">
@@ -87,16 +124,29 @@ require_once "../../model/quadranteModel.php";
 												  </tr> 
 
 										   </table>                                 
-									  </td>                          
-					<?php	}
+									  </td>   
+								                      
+					<?php 
+								$x++;
+									
+									if(($x!=0) && ($x%3)==0)
+									{
+										echo '</tr>';
+									}							
+									if(($x>= ($linhaQtd['qtd_pessoa'])-1)&&((x%3)!=0) )
+									{
+										echo '</tr>';
+									}
+
+							
+						}
 					}
 
 					 ?>
 							
 		   </table>
 		  
-					  
-  
+			
   
 
 
@@ -119,28 +169,48 @@ require_once "../../model/quadranteModel.php";
 						</tr>
 		  </table>
 					
-			<table border="1"  bordercolor="#000000">		
+			
+					<table border="1"  bordercolor="#000000" width='100%' class="fixo"  >		
+							
+						<tr>
+							<td align="center" width='33%' >
+								Nome do Grupo
+							</td>
+							<td align="center" width='33%'>
+								Local
+							</td>
+							<td align="center" width='33%'>
+								Dia da Semana e Horário
+							</td>
+						</tr>
+					</table>
+			<?php 
+						$grupoArray = $objg->listaTodos();
+									 foreach($grupoArray as $linha){
+
+
+			 ?>
+			 <table border="1"  bordercolor="#000000" width='100%' class="fixo"  >		
+
+						<tr>
+							<td align="center" width='33%'>
+								<?php print $linha["nome_grupo"]; ?>
+							</td>
+							<td align="center" width='33%'>
+								<?php print $linha["endereco_grupo"]; ?>
+							</td>
+							<td align="center" width='33%'>
+								<?php print $linha["dia"]; ?> - <?php print $linha["horario"]; ?>
+							</td>
+						</tr>
 					
-				<tr>
-					<td align="center">
-						Nome do Grupos
-					</td>
-					<td align="center">
-						Local
-					</td>
-					<td align="center">
-						Horário
-					</td>
-				</tr>
-						
-			
-			</table>
-			
-				
-  
-  
-  
-  
+					</table>
+
+				<?php 
+					}	
+						$linha = $objc->numero();
+												 
+				?>
   
   
   <br>
@@ -150,30 +220,49 @@ require_once "../../model/quadranteModel.php";
   <br>
   <br>
 
-  
-  
-			<table align="center" border="1" width="100%"   >
+  		
+  			<table align="center" border="1" width="100%"   >
 				<tr border="" bordercolor="#000000" align="center"> 
 					<td>
-						<font size="+3"><b>Coordenadores do 128º REJOC</b></font>
+						<font size="+3"><b>Coordenadores do <?php print $linha["numero_rejoc"]; ?>º REJOC</b></font>
 					</td>    
 				</tr>
 			</table>
-							
-					
-					<table align="center" border="3px">
-						<td>
-							<font size="+3" align="center">Ana Paula e Paulo  - Viviane e Edinei - Rodrigo e Barbara <br>
-							Jonas e Lisiane  - Isadora e Lazie Roberta e Patric  - Elizeu e Leticia - Elisandra e Ivan <br> 
-							Alexandre e Janete - Raquel e Peterson
-							Adriana - Sabrina – Ivete  - Andressa <br> – Bilquide - Enilda  - Ethiene - José Carlos - Giba
 
-							</font> 
-						</td>
-					</table>
+
+			<?php	
+
+
+
+								$coordenadorArray = $objc->listaTodos();
+											
+											 foreach($coordenadorArray as $linha){	
+
+						?>
+												<table align='center' border='1px' width='800px' height='2px' >
+													
+														<tr align='center'>
+															<td id='tabela_coord' >
+																<font size="+2" >    <?php print $linha["nome_coordenador"]; ?>
+																</font> 
+															</td>
+
+														</tr>
+													
+												</table>
+					
+						
+						<?php 			
+							}	
+											 
+						?>
 			
-				
-				
+
+			
+</body>
+</html>
+
+
 			
 			
 			

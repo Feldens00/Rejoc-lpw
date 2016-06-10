@@ -53,7 +53,12 @@ class pessoaModel {
     {
         $obj = new Database();
 
-        $sqlGet = "SELECT * FROM pessoas WHERE nome_pessoa LIKE '%$pesq%' ORDER BY id_pessoa ASC";
+        $sqlGet = "SELECT p.id_pessoa, p.nome_pessoa, p.dia_nasc, p.endereco, p.cep, p.fone, p.email, p.bairro, p.mes_nasc, c.nome_cidade, est.uf, eq.nome_equipe FROM pessoas p 
+            INNER JOIN cidades c on p.id_cidade = c.id_cidade 
+            INNER JOIN estados est on p.id_estado = est.id_estado 
+            INNER JOIN equipes eq on p.id_equipe = eq.id_equipe WHERE nome_pessoa LIKE '%$pesq%' ORDER BY id_pessoa ASC";
+
+     
 
         $result = mysqli_query($obj->getConnection(), $sqlGet);
 

@@ -1,11 +1,12 @@
+<?php include "../../view/layout/header.php";
+?>
+
+<h3 id="h3_addEquipe">Adicionar Equipe</h3>
 
 
-<h3>Adicionar Equipe</h3>
 
-
-
-
-<form    action="../../controller/equipeController.php?action=0"
+<div class="div-add">
+    <form  align="center"  action="../../controller/equipeController.php?action=0"
          method="post"
          enctype="multipart/form-data"
          accept-charset="utf-8"
@@ -23,6 +24,9 @@
     </div>
    
 
-    <button type="submit" name="products_add_form" id="products_add_form" class="btn btn-default">Salvar</button>
-</form>
+    <button type="submit" name="products_add_form" class="btn btn-default">Cadastrar</button>
+</form> 
+</div>
 
+
+<?php include "../../view/layout/footer.php"; ?>

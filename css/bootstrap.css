@@ -4279,7 +4279,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   height: 50px;
   padding: 15px 15px;
   font-size: 18px;
-  line-height: 20px;
+  line-height: 30px;
+  /*palavra rejoc*/
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -4329,7 +4330,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
-  line-height: 20px;
+  line-height: 35px;
 }
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
@@ -4592,11 +4593,14 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
-  border-color: #080808;
+  background-color:  #d9534f;
+  border-color: #d9534f;
+  /* cor da navbar acima*/
+
 }
+
 .navbar-inverse .navbar-brand {
-  color: #9d9d9d;
+  color: #FFFAFA;
 }
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
@@ -4607,7 +4611,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #9d9d9d;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: #9d9d9d;
+  color: #FFFAFA;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
@@ -6758,7 +6762,276 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
-#divListagem{
-    max-height:280px;
-    overflow-y:auto;
+
+  .div-centro{
+      width:80%;
+      height:50%;
+      position:absolute;
+      top:35%;
+      left:16%;
+      margin-top:-50px;
+      margin-left:-85px;
+      border-radius: 10px;
+      border: 1px solid #eee;
+       overflow:auto;
+
+  }
+
+
+@media screen and (max-width: 720px) {
+   .div-centro{
+      width:50%;
+      height:50%;
+      position:absolute;
+      top:35%;
+      left:16%;
+      margin-top:-50px;
+      margin-left:-85px;
+      border-radius: 10px;
+      border: 1px solid #eee;
+       overflow:auto;
+
+  }
+}
+
+
+
+
+.div-add{
+    width:80%;
+    height:60%;
+    position:absolute;
+    top:30%;
+    left:16%;
+    margin-top:-50px;
+    margin-left:-85px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    
+
+}
+
+
+
+.div-rodape{
+    width:100%;
+    height:15%;
+    position:absolute;
+    top:85%;
+   
+    border-radius: 10px;
+    border: 1px solid #eee;
+    background-color: #d9534f;
+
+}
+
+
+.div-footer{
+    width:30%;
+    height:25%;
+    position:absolute;
+    top:40%;
+    left:35%;
+
+    border-radius: 10px;
+    border: 1px solid #eee;
+    background-color: #FFFAFA;
+
+}
+/*layout*/
+#h3_indexLayout{
+    position:absolute;
+   left:5%;
+
+}
+#btn_indexLayout{
+    position:absolute;
+    top:16%;
+   left:75%;
+
+}
+
+/*pessoa*/
+#h1_indexPessoa{
+    position:absolute;
+   left:5%;
+
+}
+#h1_umPessoa{
+    position:absolute;
+    top: 10%;
+   left:5%;
+
+}
+/*pessoa*/
+#h3_editPessoa{
+    position:absolute;
+   left:5%;
+
+}
+
+#h3_addPessoa{
+    position:absolute;
+    top: 10%;
+   left:5%;
+
+}
+#btn_indexPessoa{
+    position:absolute;
+    top:16%;
+   left:82%;
+
+}
+
+.search_indexPessoa{
+    position:absolute;
+     width:450px;
+   
+   left:-350%;
+
+}
+
+/*equipe*/
+#h1_indexEquipe{
+    position:absolute;
+   left:5%;
+
+}
+#h3_editEquipe{
+    position:absolute;
+    top:10%;
+   left:5%;
+
+}
+
+#h3_addEquipe{
+    position:absolute;
+    top: 10%;
+   left:5%;
+
+}
+#btn_indexEquipe{
+    position:absolute;
+    top:16%;
+   left:82%;
+
+}
+
+.search_indexEquipe{
+    position:absolute;
+     width:450px;
+   
+   left:-350%;
+
+}
+
+
+/*Coord*/
+#h1_indexCoord{
+    position:absolute;
+   left:5%;
+
+}
+#btn_indexCoord{
+    position:absolute;
+    top:16%;
+   left:79%;
+
+}
+
+#h3_addCoord{
+    position:absolute;
+   left:5%;
+   top:10%;
+
+}
+#btn_addCoord{
+    position:absolute;
+    top:90%;
+   left:45%;
+
+}
+
+/*grupo*/
+#h1_indexGrupo{
+    position:absolute;
+   left:5%;
+
+}
+#btn_indexGrupo{
+    position:absolute;
+    top:16%;
+   left:83%;
+
+}
+
+#h3_addGrupo{
+    position:absolute;
+   left:5%;
+   top:10%;
+
+}
+#btn_addGrupo{
+    position:absolute;
+    top:90%;
+   left:45%;
+
+}
+
+
+/*quadrante*/
+#h3_addQuadrante{
+    position:absolute;
+    top: 10%;
+   left:5%;
+
+}
+
+.div-addQuadrante{
+    width:80%;
+    height:55%;
+    position:absolute;
+    top:30%;
+    left:16%;
+    margin-top:-50px;
+    margin-left:-85px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    overflow:auto;
+
+}
+
+#btn_addQuadrante{
+    position:fixed;
+    top:78%;
+   left:45%;
+
+}
+
+#user_login{
+    position:fixed;
+    top:4%;
+   left:75%;
+   
+
+
+
+.circulo{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    border:3px solid #000;
+    z-index:5;
+    background:#000;
+    
+    }
+    img{
+      z-index:1;
+      width:255px;
+      opacity:0.5; 
+      
+      }
+
+
+
 }

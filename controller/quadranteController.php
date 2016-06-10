@@ -10,10 +10,9 @@ class quadranteController {
             case '0':
                 $this->adicionar();
                 break;
-            case '1':
-                $this->alterar();
+             case '1':
+                $this->remover($_GET['id']);
                 break;
-            
             default:
                 echo "Erro de Action";
                 die();
@@ -36,9 +35,9 @@ class quadranteController {
    
     function remover($id)
     {
-        $obj = new pessoaModel();
+        $obj = new quadranteModel();
         $obj->remover($id);
-         header('Location: ../view/pessoa/');
+         header('Location: ../view/quadrante/');
     }
 
    

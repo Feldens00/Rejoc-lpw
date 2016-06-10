@@ -11,21 +11,7 @@ require_once "../../model/equipeModel.php";
         Equipes
     </h1>
 
-    <div class="col-lg-12">
-        <meta charset="UTF-8">
-        <div class="col-lg-4">
-            <a href="adicionar.php" >Adicionar</a>
-        </div>
-        <div class="col-lg-8">
-            <form action="pesquisa.php" method="post">
-                <div class="col-lg-10">
-                    <input type="text"
-                           class="form-control"
-                           name="equipe_pesq" />
-                </div>  
-            </form>
-        </div>
-    </div>
+   
 
     <table style="margin-top:40px" class="table">
         <thead>

@@ -1,130 +1,68 @@
 
 <?php include "header.php";
-      require_once "../../../model/PedidosModel.php";
-      require_once "../../../model/CardapioModel.php";
+
+require_once "../../model/quadranteModel.php";
+
+
 ?>
 
+    <h3 font class= "h3_indexLayout">
+        Pessoas que apareceram no Quadrante
+    </h3>
 
-
-<div class="col-md-9">
-
-<h3 style="text-align: center; margin-bottom:30px">Dashboard</h3>
-
-    <div class="col-lg-12">
-    <div class="col-md-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Ultimos Pedidos</h3>
-            </div>
-            <div class="panel-body">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Mesa</th>
-                        <th>Preço total</th>
-                        <th>Status</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-
-                        $obj = new PedidosModel();
-                        $pedidos = $obj->getAllPedidos();
-                        $precoTotal = 0;
-
-                        foreach($pedidos as $pedido){
-
-                            $class = "active";
-                            switch($pedido['status']){
-
-                                case "Pedido em Espera":
-                                    $class = "warning";
-                                    break;
-                                case "Pedido Realizado":
-                                    $class = "info";
-                                    break;
-                                case "Pedido Entregue":
-                                    $class = "danger";
-                                    break;
-                                case "Pedido Pago":
-                                    $class = "success";
-                                    break;
-                            }
-
-                            $items = $obj->getAllItensPedido($pedido['id_pedido']);
-                            $precoTotal = 0;
-                            foreach($items as $item){
-
-                                $cardapioModel = new CardapioModel();
-                                $prato         = $cardapioModel->get($item['id_cardapio']);
-                                $preco         = $prato['price'] * $item['quantidade'];
-                                $precoTotal    = $precoTotal + $preco;
-
-                            }
-
-
-                            echo '<tr class='. $class . '>';
-                            echo '<td>' . $pedido['id_pedido'] . '</td>';
-                            echo '<td>' . $pedido['mesa'] . '</td>';
-                            echo '<td>' . $precoTotal . '</td>';
-                            echo '<td>' . $pedido['status'] . '</td>';
-                            echo '<td>';
-                            echo '</tr>';
-                            echo '</td>';
-                        }
-
-                    ?>
-                    </tbody>
-                </table>
-            </div>
+    <div  id="btn_indexLayout">
+        <meta charset="UTF-8">
+        <div class="col-lg-4">
+            <a href="../../view/quadrante/selecionaQuadrante.php"><button type="button" class="btn btn-primary">+ Pessoas ao Quadrante</button></a>
+           
         </div>
     </div>
+            
+            <div class="div-centro">
+                 
+                        
+                        <table  class="table table-condensed">
+                            <thead>
+                                <tr  >
+                                    <th width="33%">Nome da pessoa</th>
+                                    <th width="33%">Equipe</th>
+                                    <th >Opções</th>
+                                   
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                              
 
-        <div class="col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Ultimas novidades no cardápio</h3>
-                </div>
-                <div class="panel-body">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>
-                                id
-                            </th>
-                            <th>
-                                Nome Produto
-                            </th>
-                            <th>
-                                Preço unitario
-                            </th>
-                            <th>
-                                Descrição
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
+                                $obj = new quadranteModel();
 
-                            $obj = new CardapioModel();
-                           $cardapio = $obj->getAll();
+                                $pessoaArray = $obj->listaTodos();
 
-                            foreach($cardapio as $pratos){
+                                foreach($pessoaArray as $linha){ ?>
 
-                                echo '<tr>';
-                                echo '<td>'. $pratos['id_cardapio'] . '</td>';
-                                echo '<td>'. $pratos['name'] .        '</td>';
-                                echo '<td>'. $pratos['price'].        '</td>';
-                                echo '<td>'. $pratos['description'].  '</td>';
-                                echo '</td>';
-                                echo '</tr>';
-                            }
-                        ?>
-                        </tbody>
-                    </table>
-                </div>
+                                    <tr>
+                                                
+                                                        <td ><a  href="../../view/pessoa/listaUm.php?id=<?php print $linha['id_pessoa']; ?>">
+                                                                    <?php   echo $linha['nome_pessoa'];?></td></a>
+                                                         <td width="33%" > <?php print $linha["nome_equipe"]; ?></td>
+                                                        
+                                                          <td  width="33%">
+                                                             <form action="../../controller/quadranteController.php?action=1&id=<?php echo $linha[ 'id_quadrante'];?>" method="POST" >
+                                                                  <button type="submit" class="btn btn-danger">Excluir</button>   
+                                                             </form> 
+                                                        </td>                  
+                                                      
+                                     </tr>
+
+                               <?php } ?>
+                                </tbody>
+                         </table>
+       
+               
             </div>
-        </div>
+   
+        
+         
 
-        <?php include "footer.php"; ?>
+  <?php include "footer.php"; ?>
+

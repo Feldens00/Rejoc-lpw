@@ -1,4 +1,4 @@
-<?php
+<?php include "../../view/layout/header.php";
 
 
 require_once "../../model/equipeModel.php";
@@ -6,16 +6,16 @@ require_once "../../model/equipeModel.php";
 
 ?>
 
-    <h1>
+    <h1 id="h1_indexEquipe">
         Equipes
     </h1>
 
-    <div class="col-lg-12">
+    <div id="btn_indexEquipe">
         <meta charset="UTF-8">
         <div class="col-lg-4">
-            <a href="adicionar.php" >Adicionar Equipe</a>
+             <a href="adicionar.php"><button type="button" class="btn btn-primary">+ Equipe</button></a>
         </div>
-        <div class="col-lg-8">
+        <div class="search_indexEquipe">
             <form action="pesquisa.php" method="post">
                 <div class="col-lg-10">
                     <input type="text"
@@ -25,51 +25,54 @@ require_once "../../model/equipeModel.php";
             </form>
         </div>
     </div>
+    <div class="div-centro"> 
+            <table style="margin-top:40px" class="table">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Nome da equipe</th>
+                    <th>Ordem de listagem no quandrante</th>
+                    <th>Opções</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
 
-    <table style="margin-top:40px" class="table">
-        <thead>
-        <tr>
-            <th>id</th>
-            <th>Nome da equipe</th>
-            <th>Ordem de listagem no quandrante</th>
-            <th>Opções</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
+                $obj = new equipeModel();
 
-        $obj = new equipeModel();
+                $equipeArray = $obj->listaTodos();
 
-        $equipeArray = $obj->listaTodos();
+                foreach($equipeArray as $linha){ ?>
 
-        foreach($equipeArray as $linha){ ?>
-
-            <tr>
-                        
-                                <td> <?php print $linha["id_equipe"]; ?></td>
-                                <td> <?php print $linha["nome_equipe"]; ?></td>
-                                <td> <?php print $linha["ordem_equipe"]; ?></td>
+                    <tr>
                                 
-                                 <td align="center" width="70">
-                                    <form action="alterar.php?id=<?php echo $linha['id_equipe'];?>" method="POST" >
-                                        <input type="submit" value="Alterar" />    
-                                    </form> 
-                                </td>
+                                        <td> <?php print $linha["id_equipe"]; ?></td>
+                                        <td> <?php print $linha["nome_equipe"]; ?></td>
+                                        <td> <?php print $linha["ordem_equipe"]; ?></td>
+                                        
+                                         <td align="center" width="70">
+                                            <form action="alterar.php?id=<?php echo $linha['id_equipe'];?>" method="POST" >
+                                             <button type="submit" class="btn btn-warning">Alterar</button>   
+                                            </form> 
+                                        </td>
 
-                                <td align="center" width="70">
-                                     <form action="../../controller/equipeController.php?action=2&id=<?php echo $linha[ 'id_equipe'];?>" method="POST" >
-                                            <input type="submit" value="Excluir" />    
-                                     </form> 
-                                </td>
-                               
+                                        <td align="center" width="70">
+                                             <form action="../../controller/equipeController.php?action=2&id=<?php echo $linha[ 'id_equipe'];?>" method="POST" >
+                                                    <button type="submit" class="btn btn-danger">Excluir</button>    
+                                             </form> 
+                                        </td>
+                                       
+                                      
+                     </tr>
                               
-             </tr>
-                      
 
-          
+                  
 
 
-       <?php } ?>
-        </tbody>
-    </table>
+               <?php } ?>
+                </tbody>
+            </table>
+     </div>
+    
 
+<?php include "../../view/layout/footer.php"; ?>

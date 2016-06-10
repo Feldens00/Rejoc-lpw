@@ -1,100 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Gerenciar  - Evandro Tessaro</title>
-
-    <meta name="description" content="Source code generated using layoutit.com">
-    <meta name="author" content="LayoutIt!">
-
-    <link href="../../../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../../css/style.css" rel="stylesheet">
-    <script type="text/javascript" src="../../../js/add_cell.js"></script>
-    <script type="text/javascript" src="../../../js/admin_products.js"></script>
-    <script type="text/javascript" src="../../../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../../../js/html5shiv.js"></script>
-    <script>
-    function buscar_cidades(){
-      var estado = $('#estado').val();
-      if(estado){
-        var url = '../../model/ajax_buscar_cidades.php?estado='+estado;
-        $.get(url, function(dataReturn) {
-          $('#load_cidades').html(dataReturn);
-        });
-      }
-    }
-    </script>
+  <title>Rejoc</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../css/bootstrap.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
 
 </head>
 <body>
 
-<div class="container-fluid">
-    <div class="row clearfix">
-        <div class="col-md-12 collumn">
-            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="../layout/index.php">Painel de Controle</a>
-                </div>
+<?php
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+// A sessão precisa ser iniciada em cada página diferente
+if (!isset($_SESSION)) session_start();
 
-                    <ul class="nav navbar-nav navbar-right">
+$nivel_necessario = 2;
 
-                        <li style="margin-top:20px!important; color:lightgray " >
-                            Seja bem-vindo, Admin.
-                        </li>
+// Verifica se não há a variável da sessão que identifica o usuário
+if (!isset($_SESSION['UsuarioID']) OR ($_SESSION['UsuarioNivel'] < $nivel_necessario)) {
+  // Destrói a sessão por segurança
+  session_destroy();
+  // Redireciona o visitante de volta pro login
+  header('Location: ../'); exit;
+}
 
-                        <li style="margin-right:20px!important">
-                            <a href="../index.php">Clique aqui para sair.</a>
-                        </li>
+?>
 
-                    </ul>
-                </div>
-
-            </nav>
-        </div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Rejoc</a>
     </div>
 
-    <!-- menu lateral da pagina-->
-    <div class="row" style="margin-top:75px">
-        <div class="col-md-3">
-            <ul class="nav nav-stacked">
-                <li>
-                    <a href="../cardapio/index.php">
-                        <span class="glyphicon glyphicon-list"></span>
-                        Gerenciar Card&aacute;pio
-                    </a>
-                </li>
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="../../view/layout/">Home</a></li>
 
-                <li>
-                    <a href="../pedidos/index.php">
-                        <span class="glyphicon glyphicon-shopping-cart"></span>
-                        Cadastro de Pedidos
-                    </a>
-                </li>
-                <li>
-                    <a href="../funcionarios/index.php">
-                        <span class="glyphicon glyphicon glyphicon-wrench"></span>
-                        gerenciar funcion&aacute;rio
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-9 well">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Pessoas <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../view/pessoa/">Todas as Pessoas</a></li>
+                <li><a href="../../view/pessoa/adicionar.php">Adicionar uma Pessoa</a></li>
+              </ul>
+          </li>
+
+            <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Equipes <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../view/equipe/">Todas as Equipes</a></li>
+                <li><a href="../../view/equipe/adicionar.php">Adicionar uma Equipe</a></li>
+              </ul>
+          </li>
+            <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Quadrante <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../view/quadrante/">Visualizar o Quadrante</a></li>
+                <li><a href="../../view/quadrante/selecionaQuadrante.php">Adicionar Pessoas ao Quadrante</a></li>
+              </ul>
+          </li>
+
+           <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Coordenadores e Número do Rejoc<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../view/coordenador/">Todos os Coordenadores</a></li>
+                <li><a href="../../view/coordenador/adicionar.php">Adicionar Coordenador e Número do Rejoc</a></li>
+              </ul>
+          </li>
+          
+            <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Grupos<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="../../view/grupo/">Todos os Grupos</a></li>
+                <li><a href="../../view/grupo/adicionar.php">Adicionar Grupo</a></li>
+              </ul>
+          </li>
+    </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+     
+      <li><a href="../../controller/userController.php?action=1"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+    </ul>
+       <!-- <div class="circulo">
+          <img src="../../img/icone_rejoc.png">
+
+     
+        </div>-->
+        <label id="user_login"><font color="#FFFAFA" > Olá, <?php echo $_SESSION['UsuarioNome']; ?>!</font></label>
+    
+    
+  </div>
+</nav>
+  
 
 
 
-            <script type="text/javascript">
-                function excluir_registro( e ){
-                    if( !confirm('Deseja realmente excluir este registro?') )
-                    {
-                        if( window.event)
-                            window.event.returnValue=false;
-                        else
-                            e.preventDefault();
-                    }
-                }
-            </script>
+

@@ -1,17 +1,17 @@
 
 
-</div>
-</div>
-</div>
+ <div class="div-rodape">
+        <div class="div-footer">
 
-<div class="row clearfix">
-    <div class="col-md-12 column">
+            <footer >
+            Desenvolvido por Artur Feldens/
+          <a  href="https://github.com/Feldens00"> Git Hub</a>/
+                <a  href="https://www.facebook.com/Arturfeldens"> Facebook</a>
 
-        <footer style="text-align: center; margin-top:75px!important">
-            Desenvolvido na matéria de Programação Web &copy; 2013-<?= date('Y'); ?>
-        </footer>
+            </footer>
 
+        </div>
     </div>
-</div>
+
 </body>
 </html>

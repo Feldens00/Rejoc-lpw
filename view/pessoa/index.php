@@ -1,4 +1,4 @@
-<?php
+<?php include "../../view/layout/header.php";
 
 
 require_once "../../model/pessoaModel.php";
@@ -6,16 +6,18 @@ require_once "../../model/pessoaModel.php";
 
 ?>
 
-    <h1>
+    <h1 id="h1_indexPessoa">
         Pessoas
     </h1>
 
-    <div class="col-lg-12">
+    <div id="btn_indexPessoa">
         <meta charset="UTF-8">
         <div class="col-lg-4">
-            <a href="adicionar.php" >Adicionar</a>
+           
+            <a href="adicionar.php"><button type="button" class="btn btn-primary">+ Pessoa</button></a>
         </div>
-        <div class="col-lg-8">
+
+        <div class="search_indexPessoa">
             <form action="pesquisa.php" method="post">
                 <div class="col-lg-10">
                     <input type="text"
@@ -26,57 +28,59 @@ require_once "../../model/pessoaModel.php";
         </div>
     </div>
 
-    <table style="margin-top:40px" class="table">
-        <thead>
-        <tr>
-            <th>id</th>
-            <th>Nome da pessoa</th>
-            <th>Equipe</th>
-            <th>Opções</th>
-            <th>Quadrante</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
+  
+ <div class="div-centro">  
+          <table style="margin-top:40px" class="table">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Nome da pessoa</th>
+                    <th>Equipe</th>
+                    <th>Opções</th>
+                   
+                </tr>
+                </thead>
+                <tbody>
+                <?php
 
-        $obj = new pessoaModel();
+                $obj = new pessoaModel();
+                $pessoaArray = $obj->listaTodos();
 
-        $pessoaArray = $obj->listaTodos();
+                foreach($pessoaArray as $linha){ ?>
 
-        foreach($pessoaArray as $linha){ ?>
-
-            <tr>
-                        
-                                <td> <?php print $linha["id_pessoa"]; ?></td>
-
-                                <td><a href="../../view/pessoa/listaUm.php?id=<?php print $linha['id_pessoa']; ?>">
-                                            <?php   echo $linha['nome_pessoa'];?></td></a>
-                                 <td> <?php print $linha["nome_equipe"]; ?></td>
+                    <tr>
                                 
-                                 <td align="center" width="70">
-                                    <form action="alterar.php?id=<?php echo $linha['id_pessoa'];?>" method="POST" >
-                                        <input type="submit" value="Alterar" /> 
+                                        <td> <?php print $linha["id_pessoa"]; ?></td>
 
-                                    </form> 
+                                        <td><a href="../../view/pessoa/listaUm.php?id=<?php print $linha['id_pessoa']; ?>">
+                                                    <?php   echo $linha['nome_pessoa'];?></td></a>
+                                         <td> <?php print $linha["nome_equipe"]; ?></td>
+                                        
+                                         <td align="center" width="70">
+                                            <form action="alterar.php?id=<?php echo $linha['id_pessoa'];?>" method="POST" >
+                                                 <button type="submit" class="btn btn-warning">Alterar</button> 
+                                            </form> 
 
 
-                                </td>
+                                        </td>
 
-                                <td align="center" width="70">
-                                     <form action="../../controller/pessoaController.php?action=2&id=<?php echo $linha[ 'id_pessoa'];?>" method="POST" >
-                                            <input type="submit" value="Excluir" />    
-                                     </form> 
-                                </td>
+                                        <td align="center" width="70">
+                                             <form action="../../controller/pessoaController.php?action=2&id=<?php echo $linha[ 'id_pessoa'];?>" method="POST" >
+                                                     <button type="submit" class="btn btn-danger">Excluir</button>     
+                                             </form> 
+                                        </td>
 
-                             
+                                     
+                                      
+                     </tr>
                               
-             </tr>
-                      
 
-      
+              
 
-       <?php } ?>
-        </tbody>
-    </table>
-
+               <?php } ?>
+                </tbody>
+            </table>
+    </div>
+ 
+ <?php include "../../view/layout/footer.php"; ?>
  
