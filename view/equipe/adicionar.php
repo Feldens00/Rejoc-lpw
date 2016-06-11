@@ -1,11 +1,11 @@
 <?php include "../../view/layout/header.php";
 ?>
 
-<h3 id="h3_addEquipe">Adicionar Equipe</h3>
+<h3>Adicionar Equipe</h3>
 
 
 
-<div class="div-add">
+<div class="col-lg-8 col-lg-push-2 centro" style="padding-bottom:150px"> 
     <form  align="center"  action="../../controller/equipeController.php?action=0"
          method="post"
          enctype="multipart/form-data"
@@ -14,13 +14,13 @@
          id="products_add_form">
 
 
-    <div class="form-group">
+    <div  align="center" class="form-group">
         <label for="nome">Nome</label>
-        <input name="nome" type="text" class="form-control" placeholder="Nome">
+        <input name="nome" type="text" style="width:500px;" class="form-control" placeholder="Nome">
     </div>
-    <div class="form-group">
+    <div align="center" class="form-group">
         <label for="ordem">Ordem</label>
-          <input name="ordem" type="text" class="form-control" placeholder="Ordem">
+          <input name="ordem" type="number" style="width:100px;" class="form-control" placeholder="Ordem">
     </div>
    
 

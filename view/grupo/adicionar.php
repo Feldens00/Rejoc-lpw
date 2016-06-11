@@ -1,8 +1,8 @@
 <?php include "../../view/layout/header.php";
 ?>
 
-<h3 id="h3_addGrupo">Adicionar Pessoa</h3>
-     <div class="div-add">
+<h3>Adicionar Pessoa</h3>
+     <div class="col-lg-8 col-lg-push-2 centro" style="padding-bottom:150px"> 
             <div  class="content">
                   
                    <b> 
@@ -20,34 +20,34 @@
                         
                         <p><label>Nome do Grupo:</label> 
                             <div align="center">
-                                <input style="width:500px;" id="#teste" name="grupo" class="form-control" type="text" size="40" maxlength="40" />
+                                <input style="width:500px;" id="#teste" name="grupo" value="Nome do Grupo" class="form-control" type="text" size="40" maxlength="40" />
                             </div>       
                         </p>
 
                         <p> 
                             <label>Dia da Semana:</label>
                              <div align="center">
-                                 <input style="width:500px;" name="dia" class="form-control" type="text" size="40" maxlength="40" />
+                                 <input style="width:500px;" name="dia" class="form-control" value="Ex segunda feira..." type="text" size="40" maxlength="40" />
                              </div>       
                          </p>
 
                         <p> 
                             <label>Horario:</label>
                             <div align="center">
-                                <input style="width:100px;" name="horario" class="form-control" type="time" size="40" maxlength="40" /> 
+                                <input style="width:100px;" name="horario"  class="form-control" type="time" size="40" maxlength="40" /> 
                             </div>      
                         </p>
 
                         <p> 
                             <label>Endereço:</label> 
                             <div align="center">
-                                <input style="width:500px;" name="endereco" class="form-control" type="text" size="50" maxlength="50"/>
+                                <input style="width:500px;" name="endereco" value="Endereco" class="form-control" type="text" size="50" maxlength="50"/>
                             </div> 
                         </p>
 
                    
                        
-                        <p> <button type="submit" name="btn_addGrupo" id="btn_addGrupo" class="btn btn-default">Cadastrar</button>  </p>
+                        <p> <button type="submit" class="btn btn-default">Cadastrar</button>  </p>
                         
                      
                     </form>

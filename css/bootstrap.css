@@ -4168,6 +4168,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
+  width:100%;
+  z-index:1000;
   min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
@@ -4334,7 +4336,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
-    position: static;
+    position: relative;
     float: none;
     width: auto;
     margin-top: 0;
@@ -6763,10 +6765,13 @@ button.close {
 }
 /*# sourceMappingURL=bootstrap.css.map */
 
+  .div-header{
+    position: fixed;
+  }
   .div-centro{
       width:80%;
       height:50%;
-      position:absolute;
+      position:relative;
       top:35%;
       left:16%;
       margin-top:-50px;
@@ -6777,22 +6782,15 @@ button.close {
 
   }
 
-
-@media screen and (max-width: 720px) {
-   .div-centro{
-      width:50%;
-      height:50%;
-      position:absolute;
-      top:35%;
-      left:16%;
-      margin-top:-50px;
-      margin-left:-85px;
-      border-radius: 10px;
+.centro{
+     
       border: 1px solid #eee;
-       overflow:auto;
-
+      
   }
-}
+
+
+
+  
 
 
 
@@ -6800,7 +6798,7 @@ button.close {
 .div-add{
     width:80%;
     height:60%;
-    position:absolute;
+    position:relative;
     top:30%;
     left:16%;
     margin-top:-50px;
@@ -6816,7 +6814,7 @@ button.close {
 .div-rodape{
     width:100%;
     height:15%;
-    position:absolute;
+    position:fixed;
     top:85%;
    
     border-radius: 10px;
@@ -6893,8 +6891,8 @@ button.close {
 
 /*equipe*/
 #h1_indexEquipe{
-    position:absolute;
-   left:5%;
+    position:relative;
+    left:10px
 
 }
 #h3_editEquipe{
@@ -6922,6 +6920,14 @@ button.close {
      width:450px;
    
    left:-350%;
+
+}
+
+.final{
+    
+     width:450px;
+        border: 1px solid #eee;
+  
 
 }
 
@@ -7008,29 +7014,10 @@ button.close {
 
 }
 
-#user_login{
-    position:fixed;
-    top:4%;
-   left:75%;
-   
 
 
 
-.circulo{
-    width:130px;
-    height:130px;
-    border-radius:50%;
-    border:3px solid #000;
-    z-index:5;
-    background:#000;
-    
-    }
-    img{
-      z-index:1;
-      width:255px;
-      opacity:0.5; 
-      
-      }
+
 
 
 

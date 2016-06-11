@@ -28,72 +28,76 @@ if (!isset($_SESSION['UsuarioID']) OR ($_SESSION['UsuarioNivel'] < $nivel_necess
 }
 
 ?>
+	
+		<nav class="navbar navbar-inverse fixed">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" href="#">Rejoc</a>
+		    </div>
 
-<nav class="navbar navbar-inverse">
+		    <ul class="nav navbar-nav">
+		        <li class="active"><a href="../../view/layout/">Home</a></li>
+
+		          <li class="dropdown">
+		            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Pessoas <span class="caret"></span></a>
+		              <ul class="dropdown-menu">
+		                <li><a href="../../view/pessoa/">Todas as Pessoas</a></li>
+		                <li><a href="../../view/pessoa/adicionar.php">Adicionar uma Pessoa</a></li>
+		              </ul>
+		          </li>
+
+		            <li class="dropdown">
+		            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Equipes <span class="caret"></span></a>
+		              <ul class="dropdown-menu">
+		                <li><a href="../../view/equipe/">Todas as Equipes</a></li>
+		                <li><a href="../../view/equipe/adicionar.php">Adicionar uma Equipe</a></li>
+		              </ul>
+		          </li>
+		            <li class="dropdown">
+		            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Quadrante <span class="caret"></span></a>
+		              <ul class="dropdown-menu">
+		                <li><a href="../../view/quadrante/">Visualizar o Quadrante</a></li>
+		                <li><a href="../../view/quadrante/selecionaQuadrante.php">Adicionar Pessoas ao Quadrante</a></li>
+		              </ul>
+		          </li>
+
+		           <li class="dropdown">
+		            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Coordenadores e Número do Rejoc<span class="caret"></span></a>
+		              <ul class="dropdown-menu">
+		                <li><a href="../../view/coordenador/">Todos os Coordenadores</a></li>
+		                <li><a href="../../view/coordenador/adicionar.php">Adicionar Coordenador e Número do Rejoc</a></li>
+		              </ul>
+		          </li>
+		          
+		            <li class="dropdown">
+		            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Grupos<span class="caret"></span></a>
+		              <ul class="dropdown-menu">
+		                <li><a href="../../view/grupo/">Todos os Grupos</a></li>
+		                <li><a href="../../view/grupo/adicionar.php">Adicionar Grupo</a></li>
+		              </ul>
+		          </li>
+		    </ul>
+
+		    <ul class="nav navbar-nav navbar-right">
+		     	<li>
+		     		<a href="#">Olá, <?php echo $_SESSION['UsuarioNome']; ?></a>
+		     	</li>
+		    
+		      	<li>
+		      		<a href="../../controller/userController.php?action=1"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+		      	</li>
+		   		
+		    </ul>
+		       <!-- <div class="circulo">
+		          <img src="../../img/icone_rejoc.png">
+
+		     
+		        </div>-->
+		       
+		    
+		  </div>
+		</nav>
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Rejoc</a>
-    </div>
-
-    <ul class="nav navbar-nav">
-        <li class="active"><a href="../../view/layout/">Home</a></li>
-
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Pessoas <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="../../view/pessoa/">Todas as Pessoas</a></li>
-                <li><a href="../../view/pessoa/adicionar.php">Adicionar uma Pessoa</a></li>
-              </ul>
-          </li>
-
-            <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Equipes <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="../../view/equipe/">Todas as Equipes</a></li>
-                <li><a href="../../view/equipe/adicionar.php">Adicionar uma Equipe</a></li>
-              </ul>
-          </li>
-            <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Quadrante <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="../../view/quadrante/">Visualizar o Quadrante</a></li>
-                <li><a href="../../view/quadrante/selecionaQuadrante.php">Adicionar Pessoas ao Quadrante</a></li>
-              </ul>
-          </li>
-
-           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Coordenadores e Número do Rejoc<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="../../view/coordenador/">Todos os Coordenadores</a></li>
-                <li><a href="../../view/coordenador/adicionar.php">Adicionar Coordenador e Número do Rejoc</a></li>
-              </ul>
-          </li>
-          
-            <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" >Grupos<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="../../view/grupo/">Todos os Grupos</a></li>
-                <li><a href="../../view/grupo/adicionar.php">Adicionar Grupo</a></li>
-              </ul>
-          </li>
-    </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-     
-      <li><a href="../../controller/userController.php?action=1"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-    </ul>
-       <!-- <div class="circulo">
-          <img src="../../img/icone_rejoc.png">
-
-     
-        </div>-->
-        <label id="user_login"><font color="#FFFAFA" > Olá, <?php echo $_SESSION['UsuarioNome']; ?>!</font></label>
-    
-    
-  </div>
-</nav>
-  
-
 
 
 

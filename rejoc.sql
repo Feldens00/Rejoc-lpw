@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 07-Jun-2016 às 04:31
+-- Generation Time: 11-Jun-2016 às 04:52
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -9764,6 +9764,26 @@ INSERT INTO `cidades` (`id_cidade`, `id_estado`, `uf`, `nome_cidade`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `coordenadores`
+--
+
+CREATE TABLE IF NOT EXISTS `coordenadores` (
+  `id_coordenador` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_coordenador` varchar(50) DEFAULT NULL,
+  `numero_rejoc` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id_coordenador`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `coordenadores`
+--
+
+INSERT INTO `coordenadores` (`id_coordenador`, `nome_coordenador`, `numero_rejoc`) VALUES
+(1, 'teste', 120);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `equipes`
 --
 
@@ -9772,7 +9792,7 @@ CREATE TABLE IF NOT EXISTS `equipes` (
   `nome_equipe` varchar(45) NOT NULL,
   `ordem_equipe` int(11) NOT NULL,
   PRIMARY KEY (`id_equipe`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=49 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=50 ;
 
 --
 -- Extraindo dados da tabela `equipes`
@@ -9782,37 +9802,37 @@ INSERT INTO `equipes` (`id_equipe`, `nome_equipe`, `ordem_equipe`) VALUES
 (1, 'Cursista', 1),
 (2, 'Líderes', 2),
 (3, 'Apresentadores', 3),
-(5, 'Boa Vontade', 12),
-(6, 'Cronometrista', 10),
+(5, 'Boa Vontade', 13),
+(6, 'Cronometrista', 7),
 (7, 'Apoio da Externa', 14),
-(8, 'Apoio da Interna', 46),
-(9, 'Apoio Geral ', 24),
-(10, 'Mercadinho do Céu', 20),
-(11, 'Liturgia', 8),
-(12, 'Anjos da Noite (externa)', 48),
-(13, 'Cozinha', 30),
-(14, 'Cafezinho', 32),
-(15, 'Limpeza', 34),
-(16, 'Secretaria', 36),
-(17, 'Vigília', 28),
-(18, 'Baby Sitters', 44),
-(19, 'Volante', 52),
-(20, 'Coordenação da Interna', 54),
-(21, 'Coord Espiritualidade Interna', 56),
-(22, 'Fotografia', 42),
-(23, 'Tesouraria', 50),
-(24, 'Anjos da Saúde', 22),
-(25, 'Orientação Geral', 26),
-(26, 'Orientador Espiritual (Pároco)', 58),
-(27, 'Quadrante', 40),
-(28, 'Recadinho do Coração', 38),
-(30, 'Anjos da Noite (interna)', 16),
+(8, 'Apoio da Interna', 29),
+(9, 'Apoio Geral ', 18),
+(10, 'Mercadinho do CÃ©u', 16),
+(11, 'Liturgia', 6),
+(12, 'Anjos da Noite (externa)', 30),
+(13, 'Cozinha', 21),
+(14, 'Cafezinho', 22),
+(15, 'Limpeza', 23),
+(16, 'Secretaria', 24),
+(17, 'VigÃ­lia', 20),
+(18, 'Baby Sitters', 28),
+(19, 'Volante', 32),
+(20, 'CoordenaÃ§Ã£o da Interna', 33),
+(21, 'Coord Espiritualidade Interna', 34),
+(22, 'Fotografia', 27),
+(23, 'Tesouraria', 31),
+(24, 'Anjos da SaÃºde', 17),
+(25, 'OrientaÃ§Ã£o Geral', 19),
+(26, 'Orientador Espiritual (PÃƒÂ¡roco)', 35),
+(27, 'Quadrante', 26),
+(28, 'Recadinho do CoraÃ§Ã£o', 25),
+(30, 'Anjos da Noite (interna)', 15),
 (35, 'Cristoteca', 11),
-(36, 'Folclore', 5),
-(38, 'Coordenação Liturgia', 7),
+(36, 'Folclore', 4),
+(38, 'CoordenaÃ§Ã£o Liturgia', 5),
 (39, 'Coordenação Externa', 12),
-(40, 'Apoio Espiritual', 59),
-(41, 'Olheiro', 0);
+(40, 'Apoio Espiritual', 36),
+(41, 'Olheiro', 8);
 
 -- --------------------------------------------------------
 
@@ -9863,6 +9883,29 @@ INSERT INTO `estados` (`id_estado`, `uf`, `nome_estado`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `grupos`
+--
+
+CREATE TABLE IF NOT EXISTS `grupos` (
+  `id_grupo` int(11) NOT NULL AUTO_INCREMENT,
+  `endereco_grupo` varchar(50) NOT NULL,
+  `horario` time NOT NULL,
+  `dia` varchar(50) NOT NULL,
+  `nome_grupo` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_grupo`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `grupos`
+--
+
+INSERT INTO `grupos` (`id_grupo`, `endereco_grupo`, `horario`, `dia`, `nome_grupo`) VALUES
+(1, 'testab', '11:10:00', 'segunda', 'ave '),
+(2, 'rua sei la', '06:02:00', 'segunda', 'teste');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `login`
 --
 
@@ -9871,7 +9914,14 @@ CREATE TABLE IF NOT EXISTS `login` (
   `user` varchar(30) NOT NULL,
   `password` varchar(45) NOT NULL,
   PRIMARY KEY (`id_login`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `login`
+--
+
+INSERT INTO `login` (`id_login`, `user`, `password`) VALUES
+(1, 'artur', '12345');
 
 -- --------------------------------------------------------
 
@@ -9895,7 +9945,15 @@ CREATE TABLE IF NOT EXISTS `pessoas` (
   PRIMARY KEY (`id_pessoa`,`id_equipe`,`id_estado`,`id_cidade`),
   KEY `fk_pessoas_equipes1_idx` (`id_equipe`),
   KEY `fk_pessoas_cidades1_idx` (`id_cidade`,`id_estado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `pessoas`
+--
+
+INSERT INTO `pessoas` (`id_pessoa`, `id_equipe`, `id_estado`, `id_cidade`, `nome_pessoa`, `dia_nasc`, `endereco`, `cep`, `fone`, `email`, `bairro`, `mes_nasc`) VALUES
+(1, 38, 5, 326, 'Artur ', '11', 'rua celsio', '95555-000', '', 'vai@gmail.com', 'centro', '07'),
+(2, 11, 15, 4797, 'teste', '02', 'Rua Tadeu', '95535-000', '80101952', 'feldens@gmail.com', 'centro', '07');
 
 -- --------------------------------------------------------
 
@@ -9910,8 +9968,45 @@ CREATE TABLE IF NOT EXISTS `quadrante` (
   `id_estado` int(11) NOT NULL,
   `id_cidade` int(11) NOT NULL,
   PRIMARY KEY (`id_quadrante`,`id_pessoa`,`id_equipe`,`id_estado`,`id_cidade`),
+  UNIQUE KEY `id_pessoa` (`id_pessoa`),
   KEY `fk_quadrante_pessoas1_idx` (`id_pessoa`,`id_equipe`,`id_estado`,`id_cidade`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Extraindo dados da tabela `quadrante`
+--
+
+INSERT INTO `quadrante` (`id_quadrante`, `id_pessoa`, `id_equipe`, `id_estado`, `id_cidade`) VALUES
+(6, 1, 38, 5, 326),
+(7, 2, 11, 15, 4797);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios`
+--
+
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL,
+  `usuario` varchar(25) NOT NULL,
+  `senha` varchar(40) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `nivel` int(1) unsigned NOT NULL DEFAULT '1',
+  `ativo` tinyint(1) NOT NULL DEFAULT '1',
+  `cadastro` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `usuario` (`usuario`),
+  KEY `nivel` (`nivel`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nome`, `usuario`, `senha`, `email`, `nivel`, `ativo`, `cadastro`) VALUES
+(1, 'Usuário Teste', 'demo', '89e495e7941cf9e40e6980d14a16bf023ccd4c91', 'usuario@demo.com.br', 1, 1, '2016-06-10 13:03:27'),
+(2, 'Administrador Teste', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin@demo.com.br', 2, 1, '2016-06-10 13:03:27');
 
 --
 -- Constraints for dumped tables

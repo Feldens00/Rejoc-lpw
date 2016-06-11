@@ -5,27 +5,32 @@ require_once "../../model/equipeModel.php";
 
 
 ?>
-
-    <h1 id="h1_indexEquipe">
+    
+    <h1>
         Equipes
     </h1>
+    <div class="col-lg-9 ">
 
-    <div id="btn_indexEquipe">
-        <meta charset="UTF-8">
-        <div class="col-lg-4">
-             <a href="adicionar.php"><button type="button" class="btn btn-primary">+ Equipe</button></a>
+        <div class="col-lg-4 col-lg-push-2">
+              <a href="adicionar.php"><button type="button" class="btn btn-primary">+ Equipe</button></a>
         </div>
-        <div class="search_indexEquipe">
+        <div class="col-lg-8 col-lg-push-4 col-sm-5">
             <form action="pesquisa.php" method="post">
-                <div class="col-lg-10">
+                <div class="col-lg-8">
                     <input type="text"
                            class="form-control"
                            name="equipe_pesq" />
+                           
                 </div>  
             </form>
         </div>
     </div>
-    <div class="div-centro"> 
+   
+   
+
+    
+
+    <div class="col-lg-8 col-lg-push-2" style="padding-bottom:150px"> 
             <table style="margin-top:40px" class="table">
                 <thead>
                 <tr>

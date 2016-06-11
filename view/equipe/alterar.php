@@ -10,9 +10,9 @@
 
 ?>
 
-    <h3 id="h3_editEquipe">Editar Equipe</h3>
+    <h3>Editar Equipe</h3>
 
-     <div class="div-add">
+     <div class="col-lg-8 col-lg-push-2 centro" style="padding-bottom:150px"> 
               <form  align="center" action="../../controller/equipeController.php?action=1"
                    method="post"
                    enctype="multipart/form-data"

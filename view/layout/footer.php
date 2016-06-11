@@ -1,12 +1,13 @@
 
+ </div>
 
  <div class="div-rodape">
-        <div class="div-footer">
+        <div class=" col-lg-8 div-footer">
 
-            <footer >
-            Desenvolvido por Artur Feldens/
-          <a  href="https://github.com/Feldens00"> Git Hub</a>/
-                <a  href="https://www.facebook.com/Arturfeldens"> Facebook</a>
+            <footer style="text-align: center;" >
+            
+          <a  href="https://github.com/Feldens00"> Por Artur Feldens</a>
+                
 
             </footer>
 

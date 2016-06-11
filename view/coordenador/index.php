@@ -6,19 +6,20 @@ require_once "../../model/coordenadorModel.php";
 
 ?>
 
-    <h1 id="h1_indexCoord">
+    <h1>
         Coordenadores
     </h1>
 
-    <div  id="btn_indexCoord">
-        <meta charset="UTF-8">
-        <div class="col-lg-4">
-           <a href="adicionar.php"><button type="button" class="btn btn-primary">+ Coordenador</button></a>
+   
+    <div class="col-lg-9 ">
+
+        <div class="col-lg-4 col-lg-push-2">
+               <a href="adicionar.php"><button type="button" class="btn btn-primary">+ Coordenador</button></a>
         </div>
-     
+        
     </div>
 
-    <div class="div-centro"> 
+   <div class="col-lg-8 col-lg-push-2" style="padding-bottom:300px">    
                  <table style="margin-top:40px" class="table">
                     <thead>
                     <tr>

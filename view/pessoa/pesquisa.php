@@ -1,5 +1,5 @@
 
-<?php
+<?php include "../../view/layout/header.php";
 
 
 require_once "../../model/pessoaModel.php";
@@ -10,23 +10,23 @@ require_once "../../model/pessoaModel.php";
     <h1>
         Pessoas
     </h1>
+    <div class="col-lg-9 ">
 
-    <div class="col-lg-12">
-        <meta charset="UTF-8">
-        <div class="col-lg-4">
-            <a href="adicionar.php" >Adicionar</a>
+        <div class="col-lg-4 col-lg-push-2">
+               <a href="adicionar.php"><button type="button" class="btn btn-primary">+ Pessoa</button></a>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-8 col-lg-push-4 col-sm-5">
             <form action="pesquisa.php" method="post">
                 <div class="col-lg-10">
                     <input type="text"
                            class="form-control"
                            name="pessoa_pesq" />
-                </div>  
+                </div>    
             </form>
         </div>
     </div>
-
+    
+        <div class="col-lg-8 col-lg-push-2" style="padding-bottom:150px">   
          <table style="margin-top:40px" class="table">
                 <thead>
                 <tr>
@@ -55,7 +55,7 @@ require_once "../../model/pessoaModel.php";
                                         
                                          <td align="center" width="70">
                                             <form action="alterar.php?id=<?php echo $linha['id_pessoa'];?>" method="POST" >
-                                                <input type="submit" value="Alterar" /> 
+                                                <button type="submit" class="btn btn-warning">Alterar</button> 
 
                                             </form> 
 
@@ -64,7 +64,7 @@ require_once "../../model/pessoaModel.php";
 
                                         <td align="center" width="70">
                                              <form action="../../controller/pessoaController.php?action=2&id=<?php echo $linha[ 'id_pessoa'];?>" method="POST" >
-                                                    <input type="submit" value="Excluir" />    
+                                                    <button type="submit" class="btn btn-danger">Excluir</button>   
                                              </form> 
                                         </td>
 
@@ -78,5 +78,6 @@ require_once "../../model/pessoaModel.php";
                <?php } ?>
                 </tbody>
             </table>
+        </div>
 
- <!--echo ' <a class="btn btn-danger" type="submit" href="./.../Controller/equipeController.php?action=2&id='. $equipe['id_equipe'] .'" onclick="excluir_registro( event );" ><span class="glyphicon glyphicon-trash"></span></a>';-->
+<?php "../../view/layout/footer.php"; ?>

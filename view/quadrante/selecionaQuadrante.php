@@ -6,13 +6,13 @@ require_once "../../model/pessoaModel.php";
 
 ?>
 
-    <h3 id="h3_addQuadrante">
+    <h3>
         Adicionar Pessoas ao Quadrante
     </h3>
 
    
     
-    <div class="div-addQuadrante"> 
+    <<div class="col-lg-8 col-lg-push-2" style="padding-bottom:150px">  
 
                  <table style="margin-top:40px" class="table">
                 <thead>
@@ -56,7 +56,7 @@ require_once "../../model/pessoaModel.php";
                   
 
                    <?php } ?>
-                   <button id="btn_addQuadrante" type="submit" class="btn btn-default">Cadastrar</button>
+                   <button type="submit" class="btn btn-default">Cadastrar</button>
                 </form>
 
                 </tbody>

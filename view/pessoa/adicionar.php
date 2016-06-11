@@ -1,12 +1,12 @@
 
 <?php include "../../view/layout/header.php";
 ?>
-<h3 id="h3_addPessoa">Adicionar Pessoa</h3>
+<h3>Adicionar Pessoa</h3>
 
   
     
-    <div class="div-add"> 
-            <form    action="../../controller/pessoaController.php?action=0"
+   <div class="col-lg-8 col-lg-push-2 centro" style="padding-bottom:150px">   
+            <form  align="center"   action="../../controller/pessoaController.php?action=0"
                method="post"
                enctype="multipart/form-data"
                accept-charset="utf-8"
@@ -14,7 +14,7 @@
                id="products_add_form" align="center">
               
               <br />
-              <p> Equipe: <select name="id_equipe">
+              <p><label>Equipe:</label> <select name="id_equipe">
        
                                   <?php
 
@@ -36,23 +36,39 @@
               *</p> 
 
 
-              <p> Nome: <input width="100px" name="nome"  type="text" size="40" maxlength="40" />*      </p>
-
-              <p>Data de Nascimento: 
-              <input name="dia" type="text" size="2" maxlength="2" /> m&ecirc;s  
-              <input name="mes" type="text" size="2" maxlength="2" />
-
+              <p>
+                
+                <div align="center">
+                *<label>Nome:</label>
+                <input style="width:500px;"  name="nome" class="form-control" type="text" size="40" maxlength="40"  />
+                </div>       
               </p>
 
-          <p> Endere&ccedil;o: <input name="endereco" type="text" size="50" maxlength="50"/> </p>
+              <p>
+                <label>Data de Nascimento:</label> 
+                <div align="center">
+                  <input name="dia" style="width:100px;"  type="number" class="form-control" size="2" maxlength="2"  /><label>Mês</label>  
+                <input name="mes" style="width:100px;"  type="number" class="form-control" size="2" maxlength="2"  />
+                </div>
+              </p>
 
-          <p> Bairro: <input type="text" name="bairro" maxlength="22" size="30" />
+          <p>
+            <label>Endereço: </label> 
+            <div align="center">
+              <input name="endereco" style="width:500px;" class="form-control" type="text" size="50" maxlength="50" />
+            </div>
+           </p>
 
-           CEP: <input type="text" name="cep"  onkeypress="mascara(this, '#####-###')" maxlength="9"  /></p>
+          <p> 
+              <label>Bairro:</label> 
+              <div align="center"><input type="text" style="width:500px;"  name="bairro" class="form-control" maxlength="22" size="30"  />
+              <label>CEP</label> <input type="text" style="width:300px;"  name="cep" class="form-control"  onkeypress="mascara(this, '#####-###')" maxlength="9"  />
+              </div>
+           </p>
              
             <div>
-             Estado: 
-            <select name="estado" id="estado" onchange="buscar_cidades()">
+             <label>Estado:</label> 
+            <select name="estado" id="estado"  onchange="buscar_cidades()">
               <option value="">Selecione...</option>
 
               <?php
@@ -70,7 +86,7 @@
             </select>
             </div>
             <div id="load_cidades">
-              Cidades:
+              <label>Cidades:</label>
               <select name="id_cidade" id="cidade">
                 <option value="">Selecione o estado</option>
               </select>
@@ -78,8 +94,18 @@
 
                
 
-            <p> Telefone: <input type="text" name="fone"  onkeypress="mascara(this, '## ####-####')" maxlength="12"  /> </p>
-            <p> E-mail: <input type="text" name="email" maxlength="45" size="45" /> </p>
+            <p>
+                <label>Telefone:</label>
+                <div align="center">
+                <input type="text" style="width:300px;"  name="fone"  class="form-control"  onkeypress="mascara(this, '## ####-####')" maxlength="12"  />
+                </div>   
+            </p>
+
+            <p> <label>E-mail:</label>
+            <div align="center">
+            <input type="email"  style="width:500px;"  name="email" class="form-control" maxlength="45" size="45"   />
+            </div> 
+             </p>
             
 
              

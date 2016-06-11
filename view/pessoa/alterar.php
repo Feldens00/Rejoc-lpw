@@ -8,8 +8,8 @@
 
 ?>
 
-    <h3 id="h3_editPessoa">Editar Pessoa</h3> 
-    <div class="div-add">
+    <h3 >Editar Pessoa</h3> 
+    <div class="col-lg-8 col-lg-push-2 centro" style="padding-bottom:150px"> 
 
                        <form  align="center" action="../../controller/pessoaController.php?action=1"
                        method="post"

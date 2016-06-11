@@ -1,8 +1,8 @@
 <?php include "../../view/layout/header.php";
 ?>
 
-<h3 id="h3_addCoord">Adicionar Coordeenador e Numero do Rejoc</h3>
-    <div class="div-add">
+<h3>Adicionar Coordeenador e Numero do Rejoc</h3>
+    <div class="col-lg-8 col-lg-push-2 centro" style="padding-bottom:150px"> 
         <div  class="content">
       
        <b> 
@@ -18,15 +18,25 @@
             <br />
            
 
-            <p> Nome do Coordenador: <input name="nome_coordenador" type="text" size="40" maxlength="40" />      </p>
+            <p>
+                <label>Nome do Coordenador:</label> 
+                <div align="center">
+                <input name="nome_coordenador"  style="width:500px;" class="form-control" type="text" size="40" maxlength="40" />
+                </div>      
+            </p>
 
-            <p> Numero do Rejoc: <input name="numero" type="number" size="40" maxlength="40" />      </p>
+            <p>
+                <label>Numero do Rejoc:</label>
+                <div align="center">
+                    <input name="numero" type="number" style="width:100px;" class="form-control" size="40" maxlength="40" />
+                </div>       
+            </p>
 
            
 
        
            
-            <p>  <button type="submit" name="btn_addCoord" id="btn_addCoord" class="btn btn-default">Cadastrar</button> </p>
+            <p>  <button type="submit"  class="btn btn-default">Cadastrar</button> </p>
             
          
         </form>

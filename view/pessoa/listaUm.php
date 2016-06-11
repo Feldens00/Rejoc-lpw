@@ -7,11 +7,11 @@ require_once "../../model/pessoaModel.php";
 
 ?>
     <?php $id =  $_GET['id'] ?>
-    <h1 id="h1_umPessoa">
+    <h1>
         Pessoa
     </h1>
 
-    <div class="div-add">
+    <div class="col-lg-8 col-lg-push-2 centro" style="padding-bottom:150px">   
                     <table style="margin-top:40px" class="table">
                     <thead>
                     <tr>

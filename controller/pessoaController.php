@@ -40,8 +40,7 @@ class pessoaController {
         
 
         
-        echo("nome:".$nome_p."<br> dia:".$dia_nasc."<br>mes:".$mes_nasc."<br> id_cidade:".$id_cidade."<br> id_estado:".$id_estado.
-            "<br> equipe:".$id_equipe."<br> endereco:".$endereco."<br> bairro:".$bairro."<br> email:".$email."<br> telefone:".$telefone."<br> cep:".$cep);
+       
 
 
 
@@ -49,8 +48,8 @@ class pessoaController {
 
            $params = [
 
-               'status' => 0,
-               'message' => "O nome &eacute; obrigat&oacute;rio."
+               /*'status' => 0,
+               'message' =>*/ "O nome &eacute; obrigat&oacute;rio."
 
            ];
 
@@ -59,39 +58,14 @@ class pessoaController {
 
        }
 
-        if($dia_nasc == null){
-
-            $params = [
-
-                'status' => 0,
-                'message' => "O dia &eacute; obrigat&oacute;rio."
-
-            ];
-
-            echo json_encode($params, JSON_UNESCAPED_UNICODE);
-            return false;
-
-        }
-         if($mes_nasc == null){
-
-            $params = [
-
-                'status' => 0,
-                'message' => "O mes &eacute; obrigat&oacute;rio."
-
-            ];
-
-            echo json_encode($params, JSON_UNESCAPED_UNICODE);
-            return false;
-
-        }
+        
 
          if($id_cidade == null){
 
             $params = [
 
-                'status' => 0,
-                'message' => "A cidade &eacute; obrigat&oacute;ria."
+                /*'status' => 0,
+                'message' => */"A cidade &eacute; obrigat&oacute;ria."
 
             ];
 
@@ -103,8 +77,8 @@ class pessoaController {
 
             $params = [
 
-                'status' => 0,
-                'message' => "A equipe &eacute; obrigat&oacute;ria."
+                /*'status' => 0,
+                'message' => */"A equipe &eacute; obrigat&oacute;ria."
 
             ];
 
@@ -158,8 +132,8 @@ class pessoaController {
 
            $params = [
 
-               'status' => 0,
-               'message' => "O nome &eacute; obrigat&oacute;rio."
+              // 'status' => 0,
+               /*'message' => */"O nome &eacute; obrigat&oacute;rio."
 
            ];
 
@@ -168,12 +142,12 @@ class pessoaController {
 
        }
 
-        if($dia_nasc == null){
+         if($id_cidade == null){
 
             $params = [
 
-                'status' => 0,
-                'message' => "O dia &eacute; obrigat&oacute;rio."
+                /*'status' => 0,
+                'message' => */"A cidade &eacute; obrigat&oacute;ria."
 
             ];
 
@@ -181,12 +155,12 @@ class pessoaController {
             return false;
 
         }
-         if($mes_nasc == null){
+          if($id_equipe == null){
 
             $params = [
 
-                'status' => 0,
-                'message' => "O mes &eacute; obrigat&oacute;rio."
+                /*'status' => 0,
+                'message' => */"A equipe &eacute; obrigat&oacute;ria."
 
             ];
 

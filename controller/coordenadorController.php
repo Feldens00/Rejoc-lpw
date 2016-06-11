@@ -29,6 +29,19 @@ class coordenadorController {
         $numero      = strip_tags($_POST['numero']);
         $nome_coordenador       = strip_tags($_POST['nome_coordenador']);
         
+             if($nome_coordenador == null){
+
+           $params = [
+
+               /*'status' => 0,
+               'message' =>*/ "O nome &eacute; obrigat&oacute;rio."
+
+           ];
+
+           echo json_encode($params, JSON_UNESCAPED_UNICODE);
+           return false;
+
+       }
 
          $coordenador = [
             

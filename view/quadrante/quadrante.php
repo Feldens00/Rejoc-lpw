@@ -9,11 +9,11 @@ require_once "../../model/quadranteModel.php";
     <h1>
         Pessoas
     </h1>
+    
+    <div class="col-lg-9 ">
 
-    <div class="col-lg-12">
-        <meta charset="UTF-8">
-        <div class="col-lg-4">
-             <a href="selecionarQuadrante.php"><button type="button" class="btn btn-primary">Adicionar Pessoas ao Quadrante</button></a>
+        <div class="col-lg-4 col-lg-push-2">
+              <a href="selecionarQuadrante.php"><button type="button" class="btn btn-primary">Adicionar Pessoas ao Quadrante</button></a>
         </div>
         <div class="col-lg-8">
             <form action="pesquisa.php" method="post">
@@ -25,7 +25,8 @@ require_once "../../model/quadranteModel.php";
             </form>
         </div>
     </div>
-
+   
+    <div class="col-lg-8 col-lg-push-2" style="padding-bottom:300px">   
     <table style="margin-top:40px" class="table">
         <thead>
         <tr>
@@ -62,5 +63,6 @@ require_once "../../model/quadranteModel.php";
        <?php } ?>
         </tbody>
     </table>
+    </div>
 
  

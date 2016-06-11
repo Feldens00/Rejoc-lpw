@@ -6,19 +6,20 @@ require_once "../../model/quadranteModel.php";
 
 ?>
 
-    <h3 font class= "h3_indexLayout">
+    <h3>
         Pessoas que apareceram no Quadrante
     </h3>
+    
+    <div class="col-lg-9 ">
 
-    <div  id="btn_indexLayout">
-        <meta charset="UTF-8">
-        <div class="col-lg-4">
-            <a href="../../view/quadrante/selecionaQuadrante.php"><button type="button" class="btn btn-primary">+ Pessoas ao Quadrante</button></a>
-           
+        <div class="col-lg-4 col-lg-push-2">
+              <a href="../../view/quadrante/selecionaQuadrante.php"><button type="button" class="btn btn-primary">+ Pessoas ao Quadrante</button></a>
         </div>
+       
     </div>
+    
             
-            <div class="div-centro">
+             <div class="col-lg-8 col-lg-push-2" style="padding-bottom:150px">  
                  
                         
                         <table  class="table table-condensed">

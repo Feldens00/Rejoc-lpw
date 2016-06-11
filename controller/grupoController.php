@@ -30,7 +30,62 @@ class grupoController {
         $horario      = strip_tags($_POST['horario']);
         $nome_grupo       = strip_tags($_POST['grupo']);
         $endereco       = strip_tags($_POST['endereco']);
-      
+            
+         if($nome_grupo == null){
+
+           $params = [
+
+               /*'status' => 0,
+               'message' =>*/ "O nome &eacute; obrigat&oacute;rio."
+
+           ];
+
+           echo json_encode($params, JSON_UNESCAPED_UNICODE);
+           return false;
+
+       }
+
+         if($horario == null){
+
+           $params = [
+
+               /*'status' => 0,
+               'message' =>*/ "O horario &eacute; obrigat&oacute;rio."
+
+           ];
+
+           echo json_encode($params, JSON_UNESCAPED_UNICODE);
+           return false;
+
+       }
+
+         if($dia == null){
+
+           $params = [
+
+               /*'status' => 0,
+               'message' =>*/ "O dia &eacute; obrigat&oacute;rio."
+
+           ];
+
+           echo json_encode($params, JSON_UNESCAPED_UNICODE);
+           return false;
+
+       }
+
+         if($endereco == null){
+
+           $params = [
+
+               /*'status' => 0,
+               'message' =>*/ "O endereco &eacute; obrigat&oacute;rio."
+
+           ];
+
+           echo json_encode($params, JSON_UNESCAPED_UNICODE);
+           return false;
+
+       }
        
 
          $grupo = [
