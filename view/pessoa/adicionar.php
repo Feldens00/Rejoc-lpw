@@ -1,6 +1,10 @@
 
 <?php include "../../view/layout/header.php";
 ?>
+ 
+ 
+
+    
 <h3>Adicionar Pessoa</h3>
 
   
@@ -11,10 +15,10 @@
                enctype="multipart/form-data"
                accept-charset="utf-8"
                role="form"
-               id="products_add_form" align="center">
+               id="formPes" align="center">
               
               <br />
-              <p><label>Equipe:</label> <select name="id_equipe">
+              <p><label>Equipe:</label> <select name="id_equipe" >
        
                                   <?php
 
@@ -24,7 +28,7 @@
                                       $equipeArray = $obj->listaTodos();
                                     
                                      
-                                      print ('<option value="0" >Selecione a Equipe...</option>');
+                                      print ('<option value="">Selecione...</option>');
                                       foreach ($equipeArray as $linha) 
                                       {
                                           $id_equipe=$linha["id_equipe"];
@@ -32,8 +36,8 @@
                                           print ("<option value=$id_equipe >$nome_equipe</option>");
                                       }
                                   ?>
-                          </select> 
-              *</p> 
+                          </select > 
+              </p> 
 
 
               <p>
@@ -62,14 +66,14 @@
           <p> 
               <label>Bairro:</label> 
               <div align="center"><input type="text" style="width:500px;"  name="bairro" class="form-control" maxlength="22" size="30"  />
-              <label>CEP</label> <input type="text" style="width:300px;"  name="cep" class="form-control"  onkeypress="mascara(this, '#####-###')" maxlength="9"  />
+              <label>CEP</label> <input type="text" style="width:300px;" id="cep"  name="cep" class="form-control"  maxlength="10"  />
               </div>
            </p>
              
             <div>
              <label>Estado:</label> 
             <select name="estado" id="estado"  onchange="buscar_cidades()">
-              <option value="">Selecione...</option>
+              <option  value="">Selecione...</option>
 
               <?php
                                       include '../../model/pessoaModel.php';
@@ -97,7 +101,7 @@
             <p>
                 <label>Telefone:</label>
                 <div align="center">
-                <input type="text" style="width:300px;"  name="fone"  class="form-control"  onkeypress="mascara(this, '## ####-####')" maxlength="12"  />
+                <input type="text" style="width:300px;"  name="fone"  id="fone" class="form-control"  maxlength="15"  />
                 </div>   
             </p>
 
@@ -116,30 +120,15 @@
     </div>
     
      
-  
+  <script>
+    jQuery(function($){
+      $("#fone").mask("(99) 9999-9999");
+       $("#cep").mask("99999-999");
+    });
+  </script>
    
   
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script>
-    function buscar_cidades(){
-      var estado = $('#estado').val();
-      if(estado){
-        var url = '../../js/ajax_buscar_cidades.php?estado='+estado;
-        $.get(url, function(dataReturn) {
-          $('#load_cidades').html(dataReturn);
-        });
-      }
-    }
-
-      function mascara(t, mask){
-         var i = t.value.length;
-         var saida = mask.substring(1,0);
-         var texto = mask.substring(i)
-         if (texto.substring(0,1) != saida){
-            t.value += texto.substring(0,1);
-         }
-     }
-    </script>
+  
 
     
 <?php include "../../view/layout/footer.php"; ?>

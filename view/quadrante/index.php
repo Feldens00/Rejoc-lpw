@@ -1,3 +1,5 @@
+<?php include "../../view/layout/header.php";
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,10 +32,10 @@ require_once "../../model/grupoModel.php";
 			
 
 ?>
-			<table align="center" border="1"  width="100%"  >
+			<table align="center" border="1"  width="101%"  >
 				<tr border="1" bordercolor="#000000" align="center"> 
 					<td>
-						<font  id="font_coord" size="+6"><b>CURSISTAS <?php print $linha["numero_rejoc"] ?>º REJOC</b></font>
+						<font   id="font_coord" size="+6"><b>CURSISTAS <?php print $linha["numero_rejoc"] ?>º REJOC</b></font>
 					</td>    
 				</tr>
 			</table>
@@ -56,7 +58,7 @@ require_once "../../model/grupoModel.php";
 
 				?>
 
-							<table align="center" border="1" width="100%"   >
+							<table align="center" border="1" width="101%"   >
 								<tr border="1" bordercolor="#000000" align="center"> 
 									<td>
 										<font size="+3"><b><?php print $linhaE["nome_equipe"] ?></b></font>
@@ -86,40 +88,40 @@ require_once "../../model/grupoModel.php";
 						 		
 										<td>                                    
 										   
-										   <table width="275" border="1" bordercolor="#000000">
+										   <table width="281" border="1" bordercolor="#000000">
 
 												  <tr>
 
-													<td width="228"><b><?php print $linha["nome_pessoa"]; ?></b></td>
+													<td width="228" align="center"><b><?php print $linha["nome_pessoa"]; ?></b></td>
 													<td width="31" align="center"><b><?php print $linha["dia_nasc"]; ?>/<?php print $linha["mes_nasc"]; ?></b></td>
 												  </tr>
 
 												  <tr>
 
-													<td colspan="2"><?php print $linha["endereco"]; ?></td>
+													<td align="center" colspan="2"><?php print $linha["endereco"]; ?></td>
 
 												  </tr>
 
 												  <tr>
 
-													<td colspan="2"> <?php print $linha["bairro"]; ?> - <?php print $linha["nome_cidade"]; ?> / <?php print $linha["uf"]; ?></td>
+													<td  align="center" colspan="2"> <?php print $linha["bairro"]; ?> - <?php print $linha["nome_cidade"]; ?> / <?php print $linha["uf"]; ?></td>
 												  </tr>
 
 												  <tr>
 
-													<td colspan="2"><b>CEP: </b><?php print $linha["cep"]; ?></td>
-
-												  </tr>
-
-												  <tr>
-
-													<td colspan="2"><b>Fone: </b><?php print $linha["fone"]; ?></td>
+													<td  align="center" colspan="2"><b>CEP: </b><?php print $linha["cep"]; ?></td>
 
 												  </tr>
 
 												  <tr>
 
-													<td colspan="2"><b>E-mail: </b><?php print $linha["email"]; ?></td>
+													<td align="center" colspan="2"><b>Fone: </b><?php print $linha["fone"]; ?></td>
+
+												  </tr>
+
+												  <tr>
+												  		
+													<td  align="center" colspan="2"><b>E-mail: </b><?php print $linha["email"]; ?></td>
 
 												  </tr> 
 
@@ -227,7 +229,7 @@ require_once "../../model/grupoModel.php";
 						<font size="+3"><b>Coordenadores do <?php print $linha["numero_rejoc"]; ?>º REJOC</b></font>
 					</td>    
 				</tr>
-			</table>
+		
 
 
 			<?php	
@@ -239,7 +241,7 @@ require_once "../../model/grupoModel.php";
 											 foreach($coordenadorArray as $linha){	
 
 						?>
-												<table align='center' border='1px' width='800px' height='2px' >
+												
 													
 														<tr align='center'>
 															<td id='tabela_coord' >
@@ -249,14 +251,14 @@ require_once "../../model/grupoModel.php";
 
 														</tr>
 													
-												</table>
+											
 					
 						
 						<?php 			
 							}	
 											 
 						?>
-			
+				</table>
 
 			
 </body>

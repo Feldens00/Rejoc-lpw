@@ -11,8 +11,7 @@ require_once "../../model/pessoaModel.php";
     </h3>
 
    
-    
-    <<div class="col-lg-8 col-lg-push-2" style="padding-bottom:150px">  
+    <div class="col-lg-8 col-lg-push-2" style="padding-bottom:150px">  
 
                  <table style="margin-top:40px" class="table">
                 <thead>
@@ -56,7 +55,15 @@ require_once "../../model/pessoaModel.php";
                   
 
                    <?php } ?>
-                   <button type="submit" class="btn btn-default">Cadastrar</button>
+                   <button type="submit" align="center" class="btn btn-default">Cadastrar</button>
+                    <div class="col-lg-5 ">
+
+                        <div  class="col-lg-4 ">
+                              <a href="../../controller/quadranteController.php?action=2"><button type="button" class="btn btn-primary">Limpar Quadrante</button></a>
+                        </div>
+                       
+                    </div>
+    
                 </form>
 
                 </tbody>

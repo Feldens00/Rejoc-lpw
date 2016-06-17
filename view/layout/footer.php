@@ -6,7 +6,7 @@
 
             <footer style="text-align: center;" >
             
-          <a  href="https://github.com/Feldens00"> Por Artur Feldens</a>
+          <a  style="text-align: center;" href="https://github.com/Feldens00">Artur Feldens</a>
                 
 
             </footer>

@@ -115,7 +115,7 @@ class pessoaController {
 
     function alterar()
     {    
-        $nome_p        = strip_tags($_POST['nome']);
+         $nome_p        = strip_tags($_POST['nome']);
         $dia_nasc       = strip_tags($_POST['dia']);
         $mes_nasc       = strip_tags($_POST['mes']);
         $id_cidade       = strip_tags($_POST['id_cidade']);
@@ -126,14 +126,16 @@ class pessoaController {
         $cep         = strip_tags($_POST['cep']);
         $telefone         = strip_tags($_POST['fone']);
         $email       = strip_tags($_POST['email']);
-
+        
+         echo("nome:".$nome_p."<br> dia:".$dia_nasc."<br>mes:".$mes_nasc."<br> id_cidade:".$id_cidade."<br> id_estado:".$id_estado.
+            "<br> equipe:".$id_equipe."<br> endereco:".$endereco."<br> bairro:".$bairro."<br> email:".$email."<br> telefone:".$telefone."<br> cep:".$cep);
 
        if($nome_p == null){
 
            $params = [
 
-              // 'status' => 0,
-               /*'message' => */"O nome &eacute; obrigat&oacute;rio."
+               'status' => 0,
+               'message' => "O nome &eacute; obrigat&oacute;rio."
 
            ];
 
@@ -146,8 +148,8 @@ class pessoaController {
 
             $params = [
 
-                /*'status' => 0,
-                'message' => */"A cidade &eacute; obrigat&oacute;ria."
+                'status' => 0,
+                'message' => "A cidade &eacute; obrigat&oacute;ria."
 
             ];
 
@@ -159,8 +161,8 @@ class pessoaController {
 
             $params = [
 
-                /*'status' => 0,
-                'message' => */"A equipe &eacute; obrigat&oacute;ria."
+                'status' => 0,
+                'message' => "A equipe &eacute; obrigat&oacute;ria."
 
             ];
 
@@ -172,7 +174,7 @@ class pessoaController {
       
 
 
-         $pessoa = [
+   $pessoa = [
             'nome_pessoa'        => $nome_p,
             'dia_nasc'       => $dia_nasc,
             'mes_nasc'       => $mes_nasc,

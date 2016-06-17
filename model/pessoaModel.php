@@ -33,7 +33,7 @@ class pessoaModel {
                       dia_nasc        = '{$pessoa['dia_nasc']}',
                       endereco        = '{$pessoa['endereco']}',
                       cep        = '{$pessoa['cep']}',
-                      fone        = '{$pessoa['fone']}',
+                      fone        = '{$pessoa['telefone']}',
                       email        = '{$pessoa['email']}',
                       bairro        = '{$pessoa['bairro']}',
                       mes_nasc        = '{$pessoa['mes_nasc']}'

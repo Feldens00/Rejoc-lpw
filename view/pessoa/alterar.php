@@ -16,7 +16,7 @@
                        enctype="multipart/form-data"
                        accept-charset="utf-8"
                        role="form"
-                       id="products_edit_form">
+                       id="formPes">
 
                     <input type="hidden" name="id" value="<?= $pessoa['id_pessoa']?>" >
                      <p> Equipe: <select name="id_equipe">
@@ -29,7 +29,7 @@
                                             $equipeArray = $obje->listaTodos();
                                           
                                            
-                                            print ('<option  value="0" > Selecione uma Equipe </option>');
+                                            print ('<option  value="" > Selecione...</option>');
                                             foreach ($equipeArray as $linha) 
                                             {
                                                 $id_equipe=$linha["id_equipe"];
@@ -39,22 +39,32 @@
                                         ?>
                                 </select> 
                     *</p> 
-                    <div class="form-group">
+                    <div align="center">
                         <label for="nome">Nome</label>
-                        <input type="text" name="nome"  placeholder="Nome da Equipe" value="<?= $pessoa['nome_pessoa']; ?>">
+                        <input  style="width:500px;" type="text" name="nome" class="form-control" placeholder="Nome da Equipe" value="<?= $pessoa['nome_pessoa']; ?>">
                     </div>
                    
-                   <p>Data de Nascimento: 
-                    <input name="dia" type="text" size="2" maxlength="2" value="<?= $pessoa['dia_nasc']; ?>"/> m&ecirc;s  
-                    <input name="mes" type="text" size="2" maxlength="2" value="<?= $pessoa['mes_nasc']; ?>" />
-
+                   <p><div align="center">
+                         <label>Data de Nascimento:</label> 
+                        <input name="dia" type="number" style="width:100px;" size="2" maxlength="2" class="form-control" value="<?= $pessoa['dia_nasc']; ?>"/> m&ecirc;s  
+                        <input name="mes" type="number" size="2" style="width:100px;" maxlength="2" class="form-control" value="<?= $pessoa['mes_nasc']; ?>" />
+                   </div>
                     </p>
 
-                <p> Endere&ccedil;o: <input name="endereco" type="text" size="50" maxlength="50" value="<?= $pessoa['endereco']; ?>"/> </p>
+                <p>
+                <div align="center">
+                  <label>Endereço</label>
+                    <input name="endereco" style="width:500px;" type="text" size="50" class="form-control" maxlength="50" value="<?= $pessoa['endereco']; ?>"/> </p>
+                </div>
 
-                <p> Bairro: <input type="text" name="bairro" maxlength="22" size="30" value="<?= $pessoa['bairro']; ?>" />
+                <p> <div align="center">
+                   <label>Bairro:</label>
+                 <input type="text" style="width:500px;" name="bairro" maxlength="22" size="30" class="form-control" value="<?= $pessoa['bairro']; ?>" />
+                  <label>CEP:</label> <input type="text" style="width:300px;" name="cep"  id="cep" class="form-control" maxlength="9" value="<?= $pessoa['cep']; ?>"  /></p>
+                </div>
+                
 
-                 CEP: <input type="text" name="cep"  onkeypress="mascara(this, '#####-###')" maxlength="9" value="<?= $pessoa['cep']; ?>"  /></p>
+               
                  
                    
                   <div>
@@ -82,42 +92,29 @@
                   </div>
               
                      
-                  <p> Telefone: <input type="text" name="fone"  onkeypress="mascara(this, '## ####-####')" maxlength="12" value="<?= $pessoa['fone']; ?>"  /> </p>
+                  <p> 
+                    <div align="center">
+                      <label>Telefone:</label> 
+                    <input type="text" style="width:300px;" name="fone" id="fone" class="form-control"  maxlength="12" value="<?= $pessoa['fone']; ?>"  /> </p>
+                    </div>
                  
-                  <p> E-mail: <input type="text" name="email" maxlength="45" size="45" value="<?= $pessoa['email']; ?>" /> </p>
-                  
+                  <p>
+                  <div align="center">
+                      <label>E-mail:</label>
+                      <input style="width:500px;" type="text" name="email" maxlength="45" class="form-control" size="45" value="<?= $pessoa['email']; ?>" /> </p>
+                  </div>
+
 
 
                     <button type="submit" name="products_edit_form" id="products_edit_form" class="btn btn-default">Cadastrar</button>
                 </form>
      </div>
 
-  
-
-
-
-
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script>
-    function buscar_cidades(){
-      var estado = $('#estado').val();
-      if(estado){
-        var url = '../../js/ajax_buscar_cidades.php?estado='+estado;
-        $.get(url, function(dataReturn) {
-          $('#load_cidades').html(dataReturn);
-        });
-      }
-    }
-
-    function mascara(t, mask){
-         var i = t.value.length;
-         var saida = mask.substring(1,0);
-         var texto = mask.substring(i)
-         if (texto.substring(0,1) != saida){
-            t.value += texto.substring(0,1);
-         }
-     }
-    </script>
+ <script>
+    jQuery(function($){
+      $("#fone").mask("(99) 9999-9999");
+       $("#cep").mask("99999-999");
+    });
+  </script>
 
 <?php include "../../view/layout/footer.php"; ?>

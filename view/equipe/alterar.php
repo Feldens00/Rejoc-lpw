@@ -18,13 +18,13 @@
                    enctype="multipart/form-data"
                    accept-charset="utf-8"
                    role="form"
-                   id="products_edit_form">
+                   id="formEqui">
 
                   <input type="hidden" name="id" value="<?= $equipe['id_equipe']?>" >
 
                   <div class="form-group">
                       <label for="nome">Nome</label>
-                      <input type="text" name="nome" class="form-control" placeholder="Nome da Equipe" value="<?= $equipe['nome_equipe']; ?>">
+                      <input type="text" name="nome" class="form-control" placeholder="Nome da Equipe" size="40" maxlength="40" value="<?= $equipe['nome_equipe']; ?>">
                   </div>
                   <div class="form-group">
                       <label for="ordem">Ordem</label>

@@ -32,6 +32,30 @@ class quadranteModel {
       }   
 
      }
+
+     function listaUm ($id)
+    {
+
+        $obj = new Database();
+        $sqllistaUm = 'SELECT * FROM pessoas  WHERE id_pessoa = '.$id;
+        $result = mysqli_query($obj->getConnection(), $sqllistaUm);
+        $linha= mysqli_fetch_assoc($result);
+
+        $array_pessoa = array(
+        
+            "id_pessoa" => $linha['id_pessoa'],
+            "nome_pessoa" => $linha['nome_pessoa']
+            
+            
+        );
+        
+        return $array_pessoa;
+        /*
+         * Após os índices criados para o formato jSon, dou um echo no jsonEcode da array acima.
+         */
+        echo json_encode($array_clientes);
+
+    }
       function equipeQuadrante ($ordem)
     {
         $obj = new Database();
@@ -57,10 +81,19 @@ class quadranteModel {
      function remover($id){
 
         $obj = new Database();
-        $sqlRemover = "DELETE FROM quadrante WHERE id_quadrante = '$id'";
+        $sqlRemover = "DELETE FROM quadrante WHERE id_pessoa = '$id'";
         mysqli_query($obj->getConnection(), $sqlRemover);
 
     }
+
+     function removeTodos(){
+
+        $obj = new Database();
+        $sqlRemover = "DELETE FROM quadrante";
+        mysqli_query($obj->getConnection(), $sqlRemover);
+
+    }
+
 
 
     function todosEquipe($ordem)

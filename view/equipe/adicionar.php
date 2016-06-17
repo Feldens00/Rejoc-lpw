@@ -11,12 +11,12 @@
          enctype="multipart/form-data"
          accept-charset="utf-8"
          role="form"
-         id="products_add_form">
+         id="formEqui">
 
 
     <div  align="center" class="form-group">
         <label for="nome">Nome</label>
-        <input name="nome" type="text" style="width:500px;" class="form-control" placeholder="Nome">
+        <input name="nome" type="text" style="width:500px;" class="form-control" size="40" maxlength="40" placeholder="Nome">
     </div>
     <div align="center" class="form-group">
         <label for="ordem">Ordem</label>
